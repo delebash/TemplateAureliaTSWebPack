@@ -11,7 +11,7 @@ module.exports = {
   resolve: {
     // An array of extensions that should be used to resolve modules.
     // See: http://webpack.github.io/docs/configuration.html#resolve-extensions
-    extensions: ['', '.ts', '.js'],
+    extensions: ['', '.ts', '.js','.scss'],
 
     // Make sure root is src
     root: path.resolve('./src'),
