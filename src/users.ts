@@ -6,7 +6,6 @@ import 'isomorphic-fetch';
 export class Users {
   heading = 'Github Users';
   users = [];
-   myname = 'dan';
 
   constructor(private http: HttpClient) {
 
