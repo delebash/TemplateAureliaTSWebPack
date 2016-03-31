@@ -4,6 +4,7 @@ const path = require('path');
 const AureliaWebpackPlugin = require('aurelia-webpack2-plugin');
 const ProvidePlugin = require('webpack/lib/ProvidePlugin');
 
+
 //common is just a javascript object for variable i.e common.devtool = sourcmap
 //file webpack.common.js
 const common = require('./webpack.common')
@@ -43,18 +44,19 @@ module.exports = {
       { test: /\.woff(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url', query: { limit: 10000, mimetype: 'application/font-woff' } },
       { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'file' },
       { test: /\.css?$/, loader: 'style!css!postcss'},
-      { test: /\.scss$/, loader: 'style?sourceMap!css?sourceMap!postcss!sass'}
+      { test: /\.scss$/, loader: 'style!css?sourceMap!postcss!sass?sourceMap'}
     ]
   },
   postcss: [
     autoprefixer({
       browsers: ['last 2 versions']
     })
-  ],
-  sassLoader: {
-    includePaths: [path.resolve(__dirname, "../sass")]
-  }
+  ]
 };
+  // sassLoader: {
+  //   includePaths: [path.resolve(__dirname, "../sass")]
+  // }
+
 
 //HappyPack makes webpack builds faster by allowing you to transform multiple files in parallel.
 

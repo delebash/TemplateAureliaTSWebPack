@@ -4,6 +4,7 @@ import '../styles/styles.css';
 
 import {Aurelia} from 'aurelia-framework';
 import {bootstrap} from 'aurelia-bootstrapper-webpack';
+require('../sass/styles.scss');
 
 bootstrap((aurelia: Aurelia) => {
   aurelia.use
