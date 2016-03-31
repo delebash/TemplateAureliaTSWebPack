@@ -14,7 +14,7 @@ module.exports = {
   resolve: common.resolve,
   //debug needed to generate source maps
   //See http://www.jbrantly.com/typescript-and-webpack/ for TS source maps  in chrome debuger left pane
-  //Expand the webpack cloud icon then src folder and you will see your files and be able to set break points
+  //Expand the webpack cloud icon then src folder and you will see your files
   debug: true,
   devtool: common.devtool,
   devServer: {

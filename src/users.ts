@@ -6,8 +6,10 @@ import 'isomorphic-fetch';
 export class Users {
   heading = 'Github Users';
   users = [];
+   myname = 'dan';
 
   constructor(private http: HttpClient) {
+
     http.configure(config => {
       config
         .useStandardConfiguration()
@@ -16,6 +18,7 @@ export class Users {
   }
 
   activate() {
+
     return this.http.fetch('users')
       .then(response => response.json())
       .then(users => this.users = users);
