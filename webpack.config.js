@@ -14,7 +14,7 @@ module.exports = {
   resolve: common.resolve,
   //debug needed to generate source maps
   //See http://www.jbrantly.com/typescript-and-webpack/ for TS source maps  in chrome debuger left pane
-  //Expand the webpack cloud icon and you will see your files
+  //Expand the webpack cloud icon then src folder and you will see your files and be able to set break points
   debug: true,
   devtool: common.devtool,
   devServer: {
@@ -61,12 +61,7 @@ module.exports = {
     })
   ]
 };
-  // sassLoader: {
-  //   includePaths: [path.resolve(__dirname, "../sass")]
-  // }
 
-
-//HappyPack makes webpack builds faster by allowing you to transform multiple files in parallel.
 
 // PostCCss and AutoPrefixer
 // {
@@ -91,3 +86,5 @@ module.exports = {
 // sassLoader: {
 //   includePaths: [path.resolve(__dirname, "./sass")]
 // }
+
+//HappyPack(Not Working) makes webpack builds faster by allowing you to transform multiple files in parallel.
