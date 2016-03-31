@@ -52,7 +52,7 @@ module.exports = {
     })
   ],
   sassLoader: {
-    includePaths: [path.resolve(__dirname, "./sass")]
+    includePaths: [path.resolve(__dirname, "../sass")]
   }
 };
 
