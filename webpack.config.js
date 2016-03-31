@@ -33,15 +33,17 @@ module.exports = {
     loaders: [
       { test: /\.ts$/, loader: 'awesome-typescript-loader', exclude: [/\.(spec|e2e)\.ts$/, /node_modules/] },      
       { test: /\.js$/, loader: 'babel', include: /node_modules\/aurelia-[a-z\-]+/, query: { plugins: common.babelPlugins } },      
-      // { test: /\.js$/, loader: 'babel', include: /node_modules\/aurelia-[a-z\-]+/, query: { presets: ['es2015-loose-rollup'], plugins: ['transform-decorators-legacy', 'transform-runtime'] } },      
-      // { test: /\.js$/, loader: 'babel', exclude: /node_modules/, query: { presets: ['es2015-loose-rollup', 'stage-1'], plugins: ['transform-decorators-legacy', 'transform-runtime'] } },
+      // { test: /\.js$/, loader: 'babel', include: /node_modules\/aurelia-[a-z\-]+/, query: { presets: ['es2015-loose-rollup'],
+      // plugins: ['transform-decorators-legacy', 'transform-runtime'] } },
+      // { test: /\.js$/, loader: 'babel', exclude: /node_modules/, query: { presets: ['es2015-loose-rollup', 'stage-1'],
+      // plugins: ['transform-decorators-legacy', 'transform-runtime'] } },
        { test: /\.html$/, loader: 'html' },
       { test: /\.(png|gif|jpg)$/, loader: 'url', query: { limit: 8192 } },
       { test: /\.woff2(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url', query: { limit: 10000, mimetype: 'application/font-woff2' } },
       { test: /\.woff(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url', query: { limit: 10000, mimetype: 'application/font-woff' } },
       { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'file' },
       { test: /\.css?$/, loader: 'style!css!postcss'},
-      { test: /\.scss$/, loader: 'style!css!postcss!sass'}
+      { test: /\.scss$/, loader: 'style?sourceMap!css?sourceMap!postcss!sass'}
     ]
   },
   postcss: [
@@ -69,36 +71,13 @@ module.exports = {
 
 
 
-// Load SCSS
+// Load SCSS  via sass-load
 
-// { test: /\.scss$/, loader: "style!css!autoprefixer!sass" },
+// you can import your Sass modules from node_modules. Just prepend them with a ~ to tell
+// webpack that this is not a relative import:
+// @import "~bootstrap/less/bootstrap";
 
-// loaders: [
-//   {
-//     test: /\.scss$/,
-//     loaders: ["style", "css", "sass"]
-//   }
-// ]
-// },
+//{ test: /\.scss$/, loader: 'style?sourceMap!css?sourceMap!postcss!sass'}
 // sassLoader: {
-//   includePaths: [path.resolve(__dirname, "./some-folder")]
-// }
-
-// {
-//   test: /\.scss$/,
-//     loaders: ["style", "css?sourceMap", "sass?sourceMap"]
-// }
-
-// {
-//   test: /\.scss$/,
-//     loaders: ["style", "css", "sass"]
-// }
-//
-// test: /\.scss$/,
-//   // Query parameters are passed to node-sass
-//   loader: "style!css!sass?outputStyle=expanded&" +
-// "includePaths[]=" +
-// (path.resolve(__dirname, "./bower_components")) + "&" +
-// "includePaths[]=" +
-// (path.resolve(__dirname, "./node_modules"))
+//   includePaths: [path.resolve(__dirname, "./sass")]
 // }
