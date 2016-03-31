@@ -1,12 +1,12 @@
-/*eslint-disable no-var*/
-
-var path = require('path');
-var AureliaWebpackPlugin = require('aurelia-webpack2-plugin');
-var ProvidePlugin = require('webpack/lib/ProvidePlugin');
+//const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const autoprefixer = require('autoprefixer');
+const path = require('path');
+const AureliaWebpackPlugin = require('aurelia-webpack2-plugin');
+const ProvidePlugin = require('webpack/lib/ProvidePlugin');
 
 //common is just a javascript object for variable i.e common.devtool = sourcmap
 //file webpack.common.js
-var common = require('./webpack.common')
+const common = require('./webpack.common')
 
 module.exports = {
   entry: common.entry,
@@ -32,7 +32,7 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.ts$/, loader: 'awesome-typescript-loader', exclude: [/\.(spec|e2e)\.ts$/, /node_modules/] },      
-      { test: /\.js$/, loader: 'babel', include: /node_modules\/aurelia-[a-z\-]+/, query: { plugins: common.babelPlugins } },      
+      { test: /\.js$/, loader: 'babel', include: /node_modules\/aurelia-[a-z\-]+/, query: { plugins: common.babelPlugins } },
       // { test: /\.js$/, loader: 'babel', include: /node_modules\/aurelia-[a-z\-]+/, query: { presets: ['es2015-loose-rollup'],
       // plugins: ['transform-decorators-legacy', 'transform-runtime'] } },
       // { test: /\.js$/, loader: 'babel', exclude: /node_modules/, query: { presets: ['es2015-loose-rollup', 'stage-1'],
