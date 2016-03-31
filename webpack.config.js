@@ -3,7 +3,7 @@ const autoprefixer = require('autoprefixer');
 const path = require('path');
 const AureliaWebpackPlugin = require('aurelia-webpack2-plugin');
 const ProvidePlugin = require('webpack/lib/ProvidePlugin');
-
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 //common is just a javascript object for variable i.e common.devtool = sourcmap
 //file webpack.common.js
@@ -12,6 +12,10 @@ const common = require('./webpack.common')
 module.exports = {
   entry: common.entry,
   resolve: common.resolve,
+  //debug needed to generate source maps
+  //See http://www.jbrantly.com/typescript-and-webpack/ for TS source maps  in chrome debuger left pane
+  //Expand the webpack cloud icon and you will see your files
+  debug: true,
   devtool: common.devtool,
   devServer: {
     host: 'localhost',
@@ -19,13 +23,17 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, 'build'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    sourceMapFilename: "bundle.js.map"
   },
   plugins: [
     new AureliaWebpackPlugin(),
     new ProvidePlugin({
       Promise: 'bluebird'
-    })
+    }),
+    //To view sourcemaps
+    // extract inline css into separate 'styles.css'
+    new ExtractTextPlugin('styles.css')
   ],
 
 //Using an ! in the loaders, just pipes the loaders insead of puting them in an array, the loaders are
