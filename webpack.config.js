@@ -40,13 +40,9 @@ module.exports = {
 //read from right to left
   module: {
     loaders: [
-      { test: /\.ts$/, loader: 'awesome-typescript-loader', exclude: [/\.(spec|e2e)\.ts$/, /node_modules/] },      
+      { test: /\.ts$/, loader: 'awesome-typescript-loader', exclude: [/\.(spec|e2e)\.ts$/, /node_modules/] },
       { test: /\.js$/, loader: 'babel', include: /node_modules\/aurelia-[a-z\-]+/, query: { plugins: common.babelPlugins } },
-      // { test: /\.js$/, loader: 'babel', include: /node_modules\/aurelia-[a-z\-]+/, query: { presets: ['es2015-loose-rollup'],
-      // plugins: ['transform-decorators-legacy', 'transform-runtime'] } },
-      // { test: /\.js$/, loader: 'babel', exclude: /node_modules/, query: { presets: ['es2015-loose-rollup', 'stage-1'],
-      // plugins: ['transform-decorators-legacy', 'transform-runtime'] } },
-       { test: /\.html$/, loader: 'html' },
+      { test: /\.html$/, loader: 'html' },
       { test: /\.(png|gif|jpg)$/, loader: 'url', query: { limit: 8192 } },
       { test: /\.woff2(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url', query: { limit: 10000, mimetype: 'application/font-woff2' } },
       { test: /\.woff(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url', query: { limit: 10000, mimetype: 'application/font-woff' } },
