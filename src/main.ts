@@ -1,10 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
 import '../styles/styles.css';
+import '../sass/styles.scss';
 
 import {Aurelia} from 'aurelia-framework';
 import {bootstrap} from 'aurelia-bootstrapper-webpack';
-require('../sass/styles.scss');
+
 
 bootstrap((aurelia: Aurelia) => {
   aurelia.use
